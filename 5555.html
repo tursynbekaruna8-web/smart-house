@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Су тасқынынан қорғайтын үй</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b3e5fc;
+            overflow: hidden;
+        }
+
+        /* Су асты */
+        .water {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: #00bcd4;
+            animation: wave 6s infinite;
+        }
+
+        @keyframes wave {
+            0% { top: 50%; }
+            100% { top: 0%; }
+        }
+
+        /* Күннің суреті */
+        .sun {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            background-color: #ffeb3b;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 235, 59, 0.7);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* Жағалаудағы талдар */
+        .trees {
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            z-index: 2;
+        }
+
+        .tree {
+            width: 40px;
+            height: 80px;
+            background-color: #388e3c;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .tree::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: #8d6e63;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Су үстіндегі платформаның негізі */
+        .platform {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            width: 400px;
+            height: 100px;
+            background-color: #8e44ad;
+            border-radius: 10px;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        /* Үй */
+        .house {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            background-color: #FFEB3B;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateX(-50%);
+            z-index: 4;
+            animation: houseAnimation 6s infinite;
+        }
+
+        @keyframes houseAnimation {
+            0% { bottom: 120px; }
+            100% { bottom: 70px; }
+        }
+
+        /* Үйдің төбесі */
+        .roof {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #FF7043;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        /* Үйдің терезелері */
+        .window {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            border: 2px solid #333;
+            top: 30px;
+        }
+
+        .window.left { left: 10px; }
+        .window.right { right: 10px; }
+
+        /* Машина */
+        .car {
+            position: absolute;
+            bottom: 15%;
+            width: 60px;
+            height: 30px;
+            background-color: #ff5722;
+            border-radius: 8px;
+            animation: carFloat 6s infinite ease-in-out;
+        }
+
+        @keyframes carFloat {
+            0% { left: -60px; }
+            100% { left: 100%; }
+        }
+
+        .car:nth-child(1) { bottom: 20%; animation-delay: 0s; }
+        .car:nth-child(2) { bottom: 30%; animation-delay: 1s; }
+        .car:nth-child(3) { bottom: 40%; animation-delay: 2s; }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Су толқыны -->
+<div class="water"></div>
+
+<!-- Күннің суреті -->
+<div class="sun"></div>
+
+<!-- Жағалаудағы талдар -->
+<div class="trees">
+    <div class="tree"></div>
+    <div class="tree"></div>
+    <div class="tree"></div>
+</div>
+
+<!-- Су үстіндегі платформаның негізі -->
+<div class="platform"></div>
+
+<!-- Үй -->
+<div class="house">
+    <!-- Үйдің төбесі -->
+    <div class="roof"></div>
+    <!-- Үйдің терезелері -->
+    <div class="window left"></div>
+    <div class="window right"></div>
+</div>
+
+<!-- Қалқып жүрген машиналар -->
+<div class="car"></div>
+<div class="car"></div>
+<div class="car"></div>
+
+<footer>
+    Су тасқынынан қорғайтын смарт үй жүйесі
+</footer>
+
+</body>
+</html>
